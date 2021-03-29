@@ -1,0 +1,22 @@
+---
+title: "week3"
+output: html_notebook
+---
+
+personality_data = read.csv(file = "PersonalityData.xls")
+personality_data
+
+eigenval=eigen(cor(personality_data[,2:12]))
+eigenval$values
+
+library(psych)
+fit<-principal(personality_data[, 2:12],nfactors=5, rotate="none")
+fit$values
+fit$loadings
+
+fit<-principal(personality_data[, 2:12],nfactors=3, rotate="varimax")
+fit$values
+fit$loadings
+fit$weights
+fit$scores
+
